@@ -1,0 +1,23 @@
+{
+    "name": "learn-server-rest",
+    "version": "1.0.0",
+    "description": "Example of a REST API with Node.js and Express",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/udemy-course-nodejs-complete"
+    },
+    "author": "Alexander Novitsky",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^2.2.0",
+        "express": "^5.1.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}
