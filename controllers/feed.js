@@ -5,10 +5,11 @@ exports.getPosts = (req, res, next) => {
                 _id: '1',
                 title: 'First Post',
                 content: 'This is the first post',
-                imageUrl: 'https://via.placeholder.com/150',
+                imageUrl: 'images/duck.jpg',
                 creator: {
                     name: 'Alexander Novitsky',
                 },
+                createdAt: new Date(),
             },
         ],
     });
