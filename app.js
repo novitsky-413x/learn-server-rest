@@ -10,17 +10,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const crypto = require('crypto');
 
 const feedRoutes = require('./routes/feed');
 
 const app = express();
 const fileStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
+    destination: function(req, file, cb) {
         cb(null, 'images');
     },
-    filename: (req, file, cb) => {
-        cb(null, new Date().toISOString() + '-' + file.originalname);
-    },
+    filename: function(req, file, cb) {
+        cb(null, crypto.randomUUID())
+    }
 });
 const fileFilter = (req, file, cb) => {
     if (file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg') {
