@@ -13,15 +13,16 @@ const multer = require('multer');
 const crypto = require('crypto');
 
 const feedRoutes = require('./routes/feed');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 const fileStorage = multer.diskStorage({
-    destination: function(req, file, cb) {
+    destination: function (req, file, cb) {
         cb(null, 'images');
     },
-    filename: function(req, file, cb) {
-        cb(null, crypto.randomUUID())
-    }
+    filename: function (req, file, cb) {
+        cb(null, crypto.randomUUID());
+    },
 });
 const fileFilter = (req, file, cb) => {
     if (file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg') {
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/feed', feedRoutes);
+app.use('/auth', authRoutes);
 
 app.use((error, req, res, next) => {
     console.log(error);
